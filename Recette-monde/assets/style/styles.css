@@ -43,16 +43,21 @@ header h1 {
   box-shadow: 0 0 0 2px #ffb34750;
 }
 
-.recipes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+.recipes-flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 24px;
   padding: 20px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: auto;
 }
 
 .recipe-card {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 250px;
   background: white;
   border-radius: 16px;
   padding: 20px;

@@ -1,5 +1,5 @@
 async function callJson() {
-    const table = await fetch("http://127.0.0.1:5501/assets/data/recette.json")
+    const table = await fetch("http://127.0.0.1:5500/Recette-monde/assets/data/recette.json")
     const recipe = await table.json()
     return recipe
 }
@@ -12,6 +12,24 @@ async function callData() {
 const recipes = []
 const container = document.querySelector("#recipesContainer")
 const popup = document.querySelector(".popup_info")
+const search = document.querySelector("#searchInput")
+
+search.addEventListener("input", () => {
+  const query = search.value.toLowerCase();
+
+  const recipe = document.querySelectorAll(".recipe-card");
+
+  recipe.forEach((rec) => {
+    const contenu = rec.textContent.toLowerCase();
+
+    if (contenu.includes(query)) {
+      rec.style.display = "flex";
+    } else {
+      rec.style.display = "none";
+    }
+  });
+});
+
 
 recipes.push(await callData());
 
@@ -22,7 +40,7 @@ recipes[0].recipes.map((rec) => {
     div.innerHTML = `
     <div class="title_card">
         <h2>${rec.name}</h2>
-        <img class="info" src="../assets/images/info.png" />
+        <img class="info" src="/Recette-monde/assets/images/info.png" />
     </div>
     <p><strong>Nombre de personne :</strong>${rec.servings}</p>
     <ul class="container_ingredient"></ul>
