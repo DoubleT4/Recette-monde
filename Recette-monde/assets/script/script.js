@@ -47,42 +47,7 @@ recipes[0].recipes.map((rec) => {
 
     })
 
-    div.querySelector(".info").addEventListener("click", () => {
-        popup.style.display = "flex"
-        const pop = document.createElement("div")
-        pop.classList.add("pop")
-        
-
-        pop.innerHTML += `
-        <div class="close">
-            <p class="close_btn">X</p>
-        </div>
-        <div class="txt_card">
-            <h2>${rec.name}</h2>
-            <p><strong>Temps de préparation :</strong> ${rec.time}</p>
-            <p><strong>Description des étapes :</strong></br>${rec.description}</p>
-            <p><strong>Appareil à utiliser :</strong> ${rec.appliance}</p>
-            <ul class="ustensil"></ul>
-        </div>
-        `
-        const ul= pop.querySelector(".ustensil")
-
-        rec.ustensils.map((us) => {
-            ul.innerHTML += `
-            <li>${us}</li>
-            `
-
-        })
-
-        pop.querySelector(".close_btn").addEventListener("click", () => {
-            pop.remove()
-
-            popup.style.display = "none"
-        })
-
-        popup.appendChild(pop)
-    })
-
+    
     
     container.appendChild(div)
 })
