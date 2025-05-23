@@ -46,6 +46,7 @@ recipes[0].recipes.map((rec) => {
         }
 
     })
+    
 
     div.querySelector(".info").addEventListener("click", () => {
         popup.style.display = "flex"
@@ -82,7 +83,6 @@ recipes[0].recipes.map((rec) => {
 
         popup.appendChild(pop)
     })
-
     
     container.appendChild(div)
 })
